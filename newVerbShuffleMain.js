@@ -59,6 +59,8 @@ var perEndingsFirstPerfect = [["ī", "I have "], ["isti", "You have "], ["it", "
 
 var pluPerEndingsFirstPerfect = [["eram", "I had "], ["eras", "You had "], ["erat", "She/he/it had "], ["eramus", "We had "], ["eratis", "Ya'll had "], ["erant", "They had "]];
 
+var futPerEndings = [["ero", "I will have "], ["eris", "You will have "], ["erit", "She/he/it will have "], ["erimus", "We will have "], ["eritis", "Ya'll will have "], ["erint", "They will have "]];
+
 var answers = ["answerOne", "answerTwo", "answerThree", "answerFour"];
 
 
@@ -87,9 +89,10 @@ var presTV1 = verbsFirst[randIndex][0] + perEndingsFirst[randPEIndex][0];
 var impTV2 = verbsFirst[randIndex][0] + perEndingsFirstImp[randPEIndex][0];
 var perTV3 = verbsFirstPer[randIndex][0] + perEndingsFirstPerfect[randPEIndex][0];
 var pluPerTV4 = verbsFirstPer[randIndex][0] + pluPerEndingsFirstPerfect[randPEIndex][0];
+var futPerTV5 = verbsFirstPer[randIndex][0] + futPerEndings[randPEIndex][0];
 
 
-var randVerbPick = [pluPerTV4,presTV1,impTV2,perTV3];
+var randVerbPick = [pluPerTV4,presTV1,futPerTV5,perTV3];
 
 
 var randVerbPickEnglish0 = perEndingsFuture[randPEIndex][1] + verbsFirstFuture[randIndex][1];
@@ -97,9 +100,9 @@ var randVerbPickEnglish1 = perEndingsFirst[randPEIndex][1] + verbsFirst[randInde
 var randVerbPickEnglish2 = perEndingsFirstImp[randPEIndex][1] + verbsFirst[randIndex][1];
 var randVerbPickEnglish3 = perEndingsFirstPerfect[randPEIndex][1] + verbsFirstPer[randIndex][1];
 var randVerbPickEnglish4 = pluPerEndingsFirstPerfect[randPEIndex][1] + verbsFirstPer[randIndex][1];
+var randVerbPickEnglish5 = futPerEndings[randPEIndex][1] + verbsFirstPer[randIndex][1];
 
-
-var randVerbPickEnglishArray = [randVerbPickEnglish4,randVerbPickEnglish1,randVerbPickEnglish2,randVerbPickEnglish3];
+var randVerbPickEnglishArray = [randVerbPickEnglish4,randVerbPickEnglish1,randVerbPickEnglish5,randVerbPickEnglish3];
 
 
 
@@ -114,8 +117,9 @@ presTV1 = verbsFirst[randIndex][0] + perEndingsFirst[randPEIndex][0];
 impTV2 = verbsFirst[randIndex][0] + perEndingsFirstImp[randPEIndex][0];
 perTV3 = verbsFirstPer[randIndex][0] + perEndingsFirstPerfect[randPEIndex][0];
 pluPerTV4 = verbsFirstPer[randIndex][0] + pluPerEndingsFirstPerfect[randPEIndex][0];
+futPerTV5 = verbsFirstPer[randIndex][0] + futPerEndings[randPEIndex][0];
 
-randVerbPick = [pluPerTV4, presTV1,impTV2,perTV3];
+randVerbPick = [pluPerTV4, presTV1,futPerTV5,perTV3];
 
 
 randVerbPickEnglish0 = perEndingsFuture[randPEIndex][1] + verbsFirstFuture[randIndex][1];
@@ -123,9 +127,9 @@ randVerbPickEnglish1 = perEndingsFirst[randPEIndex][1] + verbsFirst[randIndex][1
 randVerbPickEnglish2 = perEndingsFirstImp[randPEIndex][1] + verbsFirst[randIndex][1];
 randVerbPickEnglish3 = perEndingsFirstPerfect[randPEIndex][1] + verbsFirstPer[randIndex][1];
 randVerbPickEnglish4 = pluPerEndingsFirstPerfect[randPEIndex][1] + verbsFirstPer[randIndex][1];
+randVerbPickEnglish5 = futPerEndings[randPEIndex][1] + verbsFirstPer[randIndex][1];
 
-
-randVerbPickEnglishArray = [randVerbPickEnglish4,randVerbPickEnglish1,randVerbPickEnglish2,randVerbPickEnglish3];
+randVerbPickEnglishArray = [randVerbPickEnglish4,randVerbPickEnglish1,randVerbPickEnglish5,randVerbPickEnglish3];
 
 
 
@@ -141,6 +145,8 @@ perEndingsFirst = [["ō", "I am "], ["ās", "You are "], ["at", "She/he/it is "]
 perEndingsFirstImp = [["ābam", "I was "], ["ābas", "You were "], ["ābat", "She/he/it was "], ["ābamus", "We were "], ["ābatis", "Ya'll were "], ["ābant", "They were "]];
 
 perEndingsFirstPerfect = [["ī", "I have "], ["isti", "You have "], ["it", "She/he/it has "], ["imus", "We have "], ["istis", "Ya'll have "], ["ērunt", "They have "]];
+
+futPerEndings = [["ero", "I will have "], ["eris", "You will have "], ["erit", "She/he/it will have "], ["erimus", "We will have "], ["eritis", "Ya'll will have "], ["erint", "They will have "]];
 
 answers = ["answerOne", "answerTwo", "answerThree", "answerFour"];
 
@@ -383,7 +389,8 @@ document.getElementById(answers[0]).innerHTML = pluPerEndingsFirstPerfect[randPE
 
 document.getElementById(answers[1]).innerHTML = perEndingsFirst[randPEIndex][1] + verbsFirst[randIndex][1]  ;
 
-document.getElementById(answers[2]).innerHTML = perEndingsFirstImp[randPEIndex][1] + verbsFirst[randIndex][1]  ;
+document.getElementById(answers[2]).innerHTML = futPerEndings[randPEIndex][1] + verbsFirstPer[randIndex][1];
+//document.getElementById(answers[2]).innerHTML = perEndingsFirstImp[randPEIndex][1] + verbsFirst[randIndex][1]  ;
 
 document.getElementById(answers[3]).innerHTML = perEndingsFirstPerfect[randPEIndex][1] + verbsFirstPer[randIndex][1]  ;
 
