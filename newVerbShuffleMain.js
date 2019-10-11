@@ -15,13 +15,13 @@ function get(x){
 
   //CHANGE THE NAMES OF THE GAMES HERE
     var game1Title = get("answerOne").innerHTML = "What's in Your Future!";
-    var game2Title = get("answerTwo").innerHTML = "Mash Up!";
-    var game3Title = get("answerThree").innerHTML = "";
+    var game2Title = get("answerTwo").innerHTML = "Four Tense Moments!";
+    var game3Title = get("answerThree").innerHTML = "Perfect Mash Up!";
     var game4Title = get("answerFour").innerHTML = "";
 
 
 //This sets up the name of the app and four seoparate games
-function appName() {get("boxTwo").innerHTML = "futureShuffle";}
+function appName() {get("boxTwo").innerHTML = "verbMash";}
 
 function gameTitle() {get("startButton").innerHTML = "What will you do!";}
 
@@ -93,6 +93,7 @@ var futPerTV5 = verbsFirstPer[randIndex][0] + futPerEndings[randPEIndex][0];
 
 
 var randVerbPick = [pluPerTV4,presTV1,futPerTV5,perTV3];
+var rand4TenseVerbPick = [pluPerTV4, presTV1,impTV2,perTV3];
 
 
 var randVerbPickEnglish0 = perEndingsFuture[randPEIndex][1] + verbsFirstFuture[randIndex][1];
@@ -103,7 +104,7 @@ var randVerbPickEnglish4 = pluPerEndingsFirstPerfect[randPEIndex][1] + verbsFirs
 var randVerbPickEnglish5 = futPerEndings[randPEIndex][1] + verbsFirstPer[randIndex][1];
 
 var randVerbPickEnglishArray = [randVerbPickEnglish4,randVerbPickEnglish1,randVerbPickEnglish5,randVerbPickEnglish3];
-
+var rand4TenseVerbPickEnglishArray = [randVerbPickEnglish4,randVerbPickEnglish1,randVerbPickEnglish2,randVerbPickEnglish3];
 
 
 function resetQuestions(){
@@ -121,6 +122,8 @@ futPerTV5 = verbsFirstPer[randIndex][0] + futPerEndings[randPEIndex][0];
 
 randVerbPick = [pluPerTV4, presTV1,futPerTV5,perTV3];
 
+rand4TenseVerbPick = [pluPerTV4, presTV1,impTV2,perTV3];
+
 
 randVerbPickEnglish0 = perEndingsFuture[randPEIndex][1] + verbsFirstFuture[randIndex][1];
 randVerbPickEnglish1 = perEndingsFirst[randPEIndex][1] + verbsFirst[randIndex][1];
@@ -131,7 +134,7 @@ randVerbPickEnglish5 = futPerEndings[randPEIndex][1] + verbsFirstPer[randIndex][
 
 randVerbPickEnglishArray = [randVerbPickEnglish4,randVerbPickEnglish1,randVerbPickEnglish5,randVerbPickEnglish3];
 
-
+rand4TenseVerbPickEnglishArray = [randVerbPickEnglish4,randVerbPickEnglish1,randVerbPickEnglish2,randVerbPickEnglish3];
 
 
 
@@ -312,7 +315,7 @@ function answerSetup(){
 function selectGame2(){
 
 	startButton.disabled = false;
- 	startButton.onclick = function(){verbTenseShuffle()};
+ 	startButton.onclick = function(){fourTenseShuffle()};
  	startButton.innerHTML = "Click to Start " + game2Title;
     answerSetup();
     gameOverAudio();
@@ -322,7 +325,7 @@ function selectGame2(){
 function selectGame3(){
 
 	startButton.disabled = false;
- 	startButton.onclick = function(){perfectTenseVerbShuffle()};
+ 	startButton.onclick = function(){verbTenseShuffle()};
  	startButton.innerHTML = "Click to Start " + game3Title;
     answerSetup();
     gameOverAudio();
@@ -472,6 +475,132 @@ shuffleAllVerbs();
 
 
 
+
+function fourTenseShuffle(){
+
+
+resetQuestions();
+
+
+
+countDownTimer();
+	timeleft = 15;
+	countdown = setInterval(countDownTimer,1000);
+
+
+startButton.disabled = true;
+
+
+//shuffle(verbsFirstFuture);
+//shuffle(verbsFirst)
+//shuffle(verbFristPer)
+//shuffle(verbsSecondFuture);
+//shuffle(perEndingsFuture);
+
+
+shuffle(answers);
+
+
+
+//shuffle(randVerbPick);
+//shuffle(randIndex);
+//shuffle(randPEIndex);
+//shuffle(randVerbPickIndex);
+
+
+
+function shuffleAllVerbs(){
+
+
+
+
+//var randIndex = Math.floor(Math.random() * 11);
+//var randPEIndex = Math.floor(Math.random() * 6);
+//var randVerbPickIndex = Math.floor(Math.random() * 4);
+
+document.getElementById(answers[0]).innerHTML = pluPerEndingsFirstPerfect[randPEIndex][1] + verbsFirstPer[randIndex][1]  ;
+
+document.getElementById(answers[1]).innerHTML = perEndingsFirst[randPEIndex][1] + verbsFirst[randIndex][1]  ;
+
+//document.getElementById(answers[2]).innerHTML = futPerEndings[randPEIndex][1] + verbsFirstPer[randIndex][1];
+document.getElementById(answers[2]).innerHTML = perEndingsFirstImp[randPEIndex][1] + verbsFirst[randIndex][1]  ;
+
+document.getElementById(answers[3]).innerHTML = perEndingsFirstPerfect[randPEIndex][1] + verbsFirstPer[randIndex][1]  ;
+
+document.getElementById("startButton").innerHTML =  rand4TenseVerbPick[randVerbPickIndex];
+
+
+
+
+}
+
+
+
+shuffleAllVerbs();
+
+
+
+
+//startButton.onclick =function(){verbTenseShuffle()};
+
+
+	resetAnswerColors();
+
+     enableButtons();
+
+
+
+     //responseButton.innerHTML = "Hint!";
+
+     //responseButton.disabled = false;
+
+
+     //if (answerOne.value == "1") {document.getElementById("boxTwo").innerHTML = "HI!");}
+
+
+     //var newArray = shuffle(questions);
+
+ 	decrementCount();
+
+
+
+
+
+
+	if (count == 0){
+
+		gameOverAudio();
+
+		startButton.innerHTML = "Select a New Game!";
+
+
+
+
+		answerOne.innerHTML = game1Title;
+		answerTwo.innerHTML = game2Title;
+		answerThree.innerHTML = game3Title;
+		answerFour.innerHTML = game4Title;
+
+		document.getElementById("boxThree").innerHTML = "Score";
+		responseButton.innerHTML = "You earned " + points + " points!";
+		points = 0;
+
+		stopTimer();
+		document.getElementById("boxOne").innerHTML = "Timer";
+
+		answerOne.onclick = function(){selectGame1()};
+		answerTwo.onclick = function(){selectGame2()};
+		answerThree.onclick = function(){selectGame3()};
+		answerFour.onclick = function(){selectGame4()};
+
+		count = 11;
+
+
+    }
+
+
+
+}
 
 
 
@@ -1182,6 +1311,7 @@ function clickedAnswerOne(){
 
 
 	if (document.getElementById("answerOne").innerHTML == randVerbPickEnglishArray[randVerbPickIndex]||
+    document.getElementById("answerOne").innerHTML == rand4TenseVerbPickEnglishArray[randVerbPickIndex]||
 		document.getElementById("answerOne").innerHTML == perEndingsFuture[0][1] + verbsFirstFuture[0][1]||
 		document.getElementById("answerOne").innerHTML == perEndingsFirst[0][1] + verbsFirst[0][1] ||
 		document.getElementById("answerOne").innerHTML ==perEndingsFirstImp[0][1] + verbsFirst[0][1] ||
@@ -1236,6 +1366,7 @@ function clickedAnswerTwo(){
 
 
 	if (document.getElementById("answerTwo").innerHTML == randVerbPickEnglishArray[randVerbPickIndex]||
+    document.getElementById("answerTwo").innerHTML == rand4TenseVerbPickEnglishArray[randVerbPickIndex]||
 		document.getElementById("answerTwo").innerHTML == perEndingsFuture[0][1] + verbsFirstFuture[0][1]||
 		document.getElementById("answerTwo").innerHTML == perEndingsFirst[0][1] + verbsFirst[0][1]||
 		document.getElementById("answerTwo").innerHTML == perEndingsFirstImp[0][1] + verbsFirst[0][1] ||
@@ -1287,6 +1418,7 @@ function clickedAnswerThree(){
 
 
 	if (document.getElementById("answerThree").innerHTML == randVerbPickEnglishArray[randVerbPickIndex]||
+    document.getElementById("answerThree").innerHTML == rand4TenseVerbPickEnglishArray[randVerbPickIndex]||
 		document.getElementById("answerThree").innerHTML == perEndingsFuture[0][1] + verbsFirstFuture[0][1]||
 		document.getElementById("answerThree").innerHTML == perEndingsFirst[0][1] + verbsFirst[0][1]||
 		document.getElementById("answerThree").innerHTML == perEndingsFirstImp[0][1] + verbsFirst[0][1] ||
@@ -1339,6 +1471,7 @@ function clickedAnswerFour(){
 
 
 	if (document.getElementById("answerFour").innerHTML == randVerbPickEnglishArray[randVerbPickIndex]||
+    document.getElementById("answerFour").innerHTML == rand4TenseVerbPickEnglishArray[randVerbPickIndex]||
 		document.getElementById("answerFour").innerHTML == perEndingsFuture[0][1] + verbsFirstFuture[0][1]||
 		document.getElementById("answerFour").innerHTML == perEndingsFirst[0][1] + verbsFirst[0][1]||
 		document.getElementById("answerFour").innerHTML == perEndingsFirstImp[0][1] + verbsFirst[0][1] ||
